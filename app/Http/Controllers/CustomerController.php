@@ -152,7 +152,7 @@ class CustomerController extends Controller
     {
         // get the drug name
         // search for all the drugs that have that name using the where clause
-        $drugs = Drug::where('name',$drugname)->get(['name','price','company','vendor_id']);
+        $drugs = Drug::where('name', 'like', '%' . $drugname . '%')->get();
         
         $i = 0;
 
@@ -166,7 +166,7 @@ class CustomerController extends Controller
             $i++;
         }
 
-        return $response;
+        return $drugs;
         // parameters to be returned include 'drug_name','drug_price','store_name','store_address','company'
 
     }

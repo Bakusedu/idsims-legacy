@@ -261,7 +261,7 @@ export default {
                 qty: "",
                 drug_type: "",
                 hcpi: "",
-                image: "",
+                photo: "",
                 nafdac: "",
                 expiry_date: "",
                 token: "",

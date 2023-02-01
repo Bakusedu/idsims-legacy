@@ -12,6 +12,6 @@ class Purchase extends Model
 
     public function drug()
     {
-        return $this->belongsTo('App\Drug','drug_id','id');
+        return $this->belongsTo('App\Models\Drug','drug_id','id');
     }
 }

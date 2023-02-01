@@ -47,22 +47,22 @@ class User extends Authenticatable
 
     public function drugs()
     {
-        return $this->hasMany('App\Drug','vendor_id');
+        return $this->hasMany('App\Models\Drug','vendor_id');
     }
 
     public function customerPurchase()
     {
-        return $this->hasMany('App\Purchase','purchasedBy');
+        return $this->hasMany('App\Models\Purchase','purchasedBy');
     }
 
     public function vendorSoldDrugs()
     {
-        return $this->hasMany('App\Purchase','purchasedFrom','id');
+        return $this->hasMany('App\Models\Purchase','purchasedFrom','id');
     }
 
     public function vendors()
     {
-        return $this->hasOne('App\Vendor','store_id','id');
+        return $this->hasOne('App\Models\Vendor','store_id','id');
     }
 
 }

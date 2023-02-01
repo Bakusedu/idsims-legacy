@@ -193,7 +193,9 @@ class UserController extends Controller
 
     public function customerDrugHistory($phone)
     {
-        
+        $drug_names = [];
+        $vendor_names = [];
+        $time = [];
         $user = User::where('phone',$phone)->Orwhere('id',$phone)->where('priviledges',3)->first();
 
         if(!$user){

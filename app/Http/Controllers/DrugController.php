@@ -67,9 +67,9 @@ class DrugController extends Controller
             //create a new drug
             // upload photo
             $fileName = Null;
-            if($request->image){
-                $fileName = time().'.'.explode('/',explode(':',substr($request->image,0,strpos($request->image,';')))[1])[1];
-                \Image::make($request->image)->save(public_path('images/').$fileName);
+            if($request->photo){
+                $fileName = time().'.'.explode('/',explode(':',substr($request->photo,0,strpos($request->photo,';')))[1])[1];
+                \Image::make($request->photo)->save(public_path('images/').$fileName);
             }
             $drug = Drug::create([
                 'name' => $request->name,

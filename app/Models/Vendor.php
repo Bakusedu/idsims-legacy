@@ -12,6 +12,6 @@ class Vendor extends Model
 
     public function user()
     {
-        return $this->belongsTo('App\User','store_id','id');
+        return $this->belongsTo('App\Models\User','store_id','id');
     }
 }
