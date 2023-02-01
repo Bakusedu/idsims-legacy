@@ -832,7 +832,7 @@ export default {
             // log the user in
             this.output = "";
             this.errorArray = [];
-            this.url = "http://127.0.0.1:8000/api/login";
+            this.url = "/api/login";
             this.isLoading_login = true;
             axios
                 .post(this.url, this.dataLogin)
