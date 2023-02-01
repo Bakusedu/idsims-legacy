@@ -1,57 +1,54 @@
 <template>
-  <div>
-      <div class="chart">
-          <GChart
+    <div>
+        <div class="chart">
+            <GChart
                 type="ColumnChart"
                 :data="chartData"
                 :options="chartOptions"
             />
-      </div>
-  </div>
+        </div>
+    </div>
 </template>
 
 <script>
-import { GChart } from 'vue-google-charts';
+import { GChart } from "vue-google-charts";
 export default {
-    data(){
+    data() {
         return {
-            token: '',
-            url: 'http://127.0.0.1:8000/api/health_information/'+this.id,
+            token: "",
+            url: "/api/health_information/" + this.id,
             chartOptions: {
-            chart: {
-            title: 'Drug Purchase Frequency',
+                chart: {
+                    title: "Drug Purchase Frequency",
+                },
             },
-         },
-        chartData: [
-            ['Drug', 'Sales'],
-            ['Drug name', 0] 
+            chartData: [
+                ["Drug", "Sales"],
+                ["Drug name", 0],
             ],
-        }
+        };
     },
-    props:['id'],
+    props: ["id"],
     methods: {
-        getHealthInformation(){
-            this.token = localStorage.getItem('token');
+        getHealthInformation() {
+            this.token = localStorage.getItem("token");
             let config = {
-                headers:{
-                    'Authorization': "Bearer "+this.token
-                }
-            }
-            fetch(this.url,config)
-            .then(res => res.json())
-            .then(res => {
-                this.chartData = res;
-            }).catch(err => {
-
-            })
-        }
+                headers: {
+                    Authorization: "Bearer " + this.token,
+                },
+            };
+            fetch(this.url, config)
+                .then((res) => res.json())
+                .then((res) => {
+                    this.chartData = res;
+                })
+                .catch((err) => {});
+        },
     },
-    mounted(){
+    mounted() {
         this.getHealthInformation();
-    }
-}
+    },
+};
 </script>
 
-<style>
-
-</style>
+<style></style>

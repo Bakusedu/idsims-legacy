@@ -69,7 +69,7 @@ export default {
     data() {
         return {
             myStore: [],
-            url: "http://127.0.0.1:8000/api/drug",
+            url: "/api/drug",
             counter: 1,
             token: "",
             isLoading: false,
@@ -120,7 +120,7 @@ export default {
             );
             if (result) {
                 axios
-                    .delete("http://127.0.0.1:8000/api/drug/" + id, config)
+                    .delete("/api/drug/" + id, config)
                     .then((res) => {})
                     .catch((err) => {
                         console.log(err);
@@ -137,7 +137,7 @@ export default {
     },
     created() {
         VendorDrugSearchEvent.$on("searching", (value) => {
-            let search_url = "http://127.0.0.1:8000/api/search?q=" + value;
+            let search_url = "/api/search?q=" + value;
             this.token = localStorage.getItem("token");
             let config = {
                 headers: {

@@ -215,8 +215,7 @@
                                     <p style="color: black; width: 40%">
                                         <img
                                             :src="
-                                                'http://127.0.0.1:8000/images/' +
-                                                drugDetails.photo
+                                                '/images/' + drugDetails.photo
                                             "
                                             class="img-fluid"
                                             style="
@@ -437,10 +436,7 @@
                                 <div class="image">
                                     <img
                                         v-if="vendor.picture"
-                                        :src="
-                                            'http://127.0.0.1:8000/images/' +
-                                            vendor.picture
-                                        "
+                                        :src="'/images/' + vendor.picture"
                                         alt=""
                                         class="img-fluid"
                                     />
@@ -792,9 +788,7 @@ export default {
         register() {
             // signup new user
             // check if the user is a vendor
-            this.url = this.vendor
-                ? "http://127.0.0.1:8000/api/vendor"
-                : "http://127.0.0.1:8000/api/customer";
+            this.url = this.vendor ? "/api/vendor" : "/api/customer";
             this.isLoading_signup = true;
             this.errorArray = [];
             this.temp_errors = [];
@@ -855,14 +849,14 @@ export default {
                     Authorization: "Bearer " + this.token,
                 },
             };
-            fetch("http://127.0.0.1:8000/api/user", config)
+            fetch("/api/user", config)
                 .then((res) => res.json())
                 .then((res) => {
                     this.auth_user_name = res.name;
                 });
         },
         fetchAllVendors() {
-            this.url = "http://127.0.0.1:8000/api/registered_vendors";
+            this.url = "/api/registered_vendors";
             fetch(this.url)
                 .then((res) => res.json())
                 .then((res) => {
@@ -875,7 +869,7 @@ export default {
             this.display = true;
             this.spinner = true;
             this.drugOpen = false;
-            this.url = "http://127.0.0.1:8000/api/registered_vendors/" + value;
+            this.url = "/api/registered_vendors/" + value;
             fetch(this.url)
                 .then((res) => res.json())
                 .then((res) => {
@@ -892,7 +886,7 @@ export default {
         },
         viewDrug(id) {
             this.displayDrug = true;
-            this.url = "http://127.0.0.1:8000/api/view_drug/" + id;
+            this.url = "/api/view_drug/" + id;
             fetch(this.url)
                 .then((res) => res.json())
                 .then((res) => {
