@@ -166,7 +166,7 @@ class CustomerController extends Controller
             $i++;
         }
 
-        return $drugs;
+        return $response;
         // parameters to be returned include 'drug_name','drug_price','store_name','store_address','company'
 
     }
